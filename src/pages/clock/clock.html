@@ -1,0 +1,16 @@
+<ion-content>
+  <button (click)="f()" ion-button>Flip</button>
+  <div class="clock-container">
+    <div class="flip-container" [class.flipping]="flipping">
+      <div class="flipper">
+        <div class="front number-card lower">
+          <span>1</span>
+        </div>
+        <div class="back number-card upper">
+          <span>2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

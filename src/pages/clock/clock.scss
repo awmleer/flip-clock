@@ -1,0 +1,91 @@
+page-clock {
+  .scroll-content{
+    background-color: #000000;
+  }
+
+  $flipper-width: 20vw;
+  $flipper-height: 15vw;
+  $number-card-radius: 3vw;
+
+  div.clock-container{
+    position: absolute;
+    top:40vh;
+    left:0;
+  }
+
+
+  .number-card{
+    overflow: hidden;
+    height: $flipper-height;
+  }
+  .number-card span{
+    display: block;
+    width:100%;
+    height: $flipper-height*2;
+    text-align: center;
+    font-size: $flipper-height*2;
+    line-height: $flipper-height*2;
+    color: #f4f4f4;
+    background-color: #5e5e5e;
+  }
+  .number-card.upper{
+    border-top-left-radius: $number-card-radius;
+    border-top-right-radius: $number-card-radius;
+  }
+  .number-card.lower{
+    border-bottom-left-radius: $number-card-radius;
+    border-bottom-right-radius: $number-card-radius;
+    span{
+      position: relative;
+      bottom: 100%;
+    }
+  }
+
+
+
+
+  .flip-container {
+    perspective: 1000px;
+    margin-left: 30vw;
+  }
+
+  .flip-container.flipping .flipper {
+    transform-origin:top;
+    transform: rotateX(180deg);
+  }
+
+  .front, .back {
+    width: $flipper-width;
+    height: $flipper-height;
+  }
+
+
+  /* flip speed goes here */
+  .flipper {
+    transition: 0.6s ease;
+    transform-style: preserve-3d;
+
+    position: relative;
+    //width: $flipper-width;
+    //height: $flipper-height;
+  }
+
+  /* hide back of pane during swap */
+  .front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  /* front pane, placed above back */
+  .front {
+    z-index: 2;
+    transform: rotateX(0deg);
+  }
+
+  /* back, initially hidden pane */
+  .back {
+    transform: rotateX(180deg);
+  }
+}
